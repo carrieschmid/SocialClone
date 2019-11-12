@@ -1,12 +1,15 @@
 import React from "react";
-// import Header from "./Header";
-// import TicketList from "./TicketList";
+import Search from "./Search";
+import NewsFeed from "./NewsFeed";
+import Posts from "./Posts"
 
 function App(){
   return (
     <div>
-        {/* <Header/>
-        <TicketList/> */}
+       <Search/>
+       <Posts/>
+       <NewsFeed/>
+
     </div>
   );
 }
