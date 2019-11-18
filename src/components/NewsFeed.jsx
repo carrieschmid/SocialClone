@@ -1,32 +1,24 @@
-import React from "react";
-import Feed from "./Feed";
+import React from 'react';
+import Feed from './Feed';
+import PropTypes from 'prop-types';
 
 
-
-var masterFeedList = [
-    {
-    userName: 'dklsadjl', 
-    feed: 'lorem ipsum dolor'
-    },
-    
-    {
-    userName: 'jgkdlfj', 
-    feed: 'ghfjdfjkgjkdfhkd'
-    }
-
-];
-
-function NewsFeed(){
+function NewsFeed(props) {
+    console.log(props.newsFeedList);
     return (
         <div>
-            <hr/>
-            {masterFeedList.map((post, index) =>
-              <Feed userName= {post.userName}
-                  feed = {post.feed}
-                  key={index}/>
+            <hr />
+            {props.newsFeedList.map((post, index) =>
+                <Feed userName={post.userName}
+                    feed={post.feed}
+                    key={index} />
             )}
         </div>
     );
 }
+
+NewsFeed.propTypes = {
+    newsFeedList: PropTypes.array
+};
 
 export default NewsFeed;
