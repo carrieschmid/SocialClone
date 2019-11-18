@@ -8,13 +8,14 @@ function NewPost(props){
     let _post = null;
     function onNewPostFormSubmission(event) {
         event.preventDefault();
-        props.onPostCreation({userName: _userNames.value, feed: _post.value});
+        props.onAddingNewPostToList({userName: _userNames.value, feed: _post.value});
         _userNames.value = '';
         _post.value = '';
     }
+    
     return(
         <div>
-            <h1 class="jumbotron">Make A New Post</h1>
+            <h1 className="jumbotron">Make A New Post</h1>
             <form onSubmit={onNewPostFormSubmission}>
                 <input type="text"
                 id='userName'
@@ -32,7 +33,7 @@ function NewPost(props){
 }
 
 NewPost.propTypes = {
-    onPostCreation: PropTypes.func
+    onAddingNewPostToList: PropTypes.func
 };
 
 export default NewPost;

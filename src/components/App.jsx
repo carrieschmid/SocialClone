@@ -2,6 +2,7 @@ import React from "react";
 import Search from "./Search";
 import NewsFeedControl from "./NewsFeedControl";
 import NavBar from './NavBar';
+import FriendsList from './FriendsList';
 // import { Switch, Route } from 'react-router-dom';
 
 
@@ -10,7 +11,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      newsFeedList: [],
+      newsFeedList: [
+        {
+          userName: "name1",
+          feed: 'feed1'
+        }
+      ],
       currentSearchTerm: "",
     };
 
@@ -40,11 +46,11 @@ class App extends React.Component {
 
         <div className="row">
           <div className="col-md-4">
-            {/* <NewsFeedControl /> */}
+            <NewsFeedControl newsFeedList={this.state.newsFeedList} handleAddingNewPostToList={this.handleAddingNewPostToList}/>
           </div>
 
           <div className="col-md-8">
-            {/* <FriendsList /> */}
+            <FriendsList />
           </div>
         </div>
       </div>

@@ -1,27 +1,21 @@
 import React from "react";
 import NewPost from './NewPost';
 import NewsFeed from './NewsFeed';
+import PropTypes from 'prop-types';
 
-class NewsFeedControl extends React.Component {
 
-    
-      
+function NewsFeedControl(props) {
+    return (
+        <div>
+            <NewPost onAddingNewPostToList={props.handleAddingNewPostToList} />
+            {/* accepts a method as a prop to make a new post */}
 
-    render(){
-        return (
-            <div>
-                <NewPost onPostCreation={this.handleAddingNewPostToList}/>
-                {/* accepts a method as a prop to make a new post */}
+            <hr />
 
-                <hr />
-
-                <NewsFeed newsFeedList={this.state.newsFeedList} />
-                {/* //takes the object arrawy from state and makes a bunch of feed components */}
-
-            </div>
-        );
-    }
-
+            <NewsFeed newsFeedList={props.newsFeedList} />
+            {/* //takes the object arrawy from state and makes a bunch of feed components */}
+        </div>
+    );
 }
 
 export default NewsFeedControl;
