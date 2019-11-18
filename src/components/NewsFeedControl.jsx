@@ -4,29 +4,8 @@ import NewsFeed from './NewsFeed';
 
 class NewsFeedControl extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            newsFeedList: [
-            {
-                userName: 'dklsadjl',
-                feed: 'lorem ipsum dolor'
-            },
-        
-            {
-                userName: 'jgkdlfj',
-                feed: 'ghfjdfjkgjkdfhkd'
-            }
-          ]
-        };
-        this.handleAddingNewPostToList = this.handleAddingNewPostToList.bind(this);
-      }
-
-      handleAddingNewPostToList(newPost) {
-          var newNewsFeedList = this.state.newsFeedList.slice();
-          newNewsFeedList.push(newPost);
-          this.setState({newsFeedList: newNewsFeedList});
-      }
+    
+      
 
     render(){
         return (

@@ -1,49 +1,54 @@
 import React from "react";
 import Search from "./Search";
 import NewsFeedControl from "./NewsFeedControl";
-import FriendsList from "./FriendsList";
 import NavBar from './NavBar';
-// import './styles.css';
+// import { Switch, Route } from 'react-router-dom';
 
 
-function App() {
-  // var appStyles = {
-  //   backgroundColor: '#ecf0f1',
-  //   fontFamily: 'sans-serif',
-  //   paddingTop: '50px'
+class App extends React.Component {
 
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      newsFeedList: [],
+      currentSearchTerm: "",
+    };
 
-  return (
-    <div className="App">
+    this.handleAddingNewPostToList = this.handleAddingNewPostToList.bind(this);
 
-      <div className="container">
+    this.handleAddingNewSearchTerm =
+      this.handleAddingNewSearchTerm.bind(this);
+  }
+
+  handleAddingNewPostToList(newPost) {
+    var newNewsFeedList = this.state.newsFeedList.slice();
+    newNewsFeedList.push(newPost);
+    this.setState({ newsFeedList: newNewsFeedList });
+  }
+
+  handleAddingNewSearchTerm(newSearch) {
+    this.setState({ currentSearchTerm: newSearch });
+    console.log(this.state.currentSearchTerm);
+  }
+
+  render() {
+    return (
+      <div className="App container">
         <div className="row" >
-          <NavBar />
+          <NavBar handleAddingNewSearchTerm={this.handleAddingNewSearchTerm}/>
         </div>
 
         <div className="row">
           <div className="col-md-4">
-            <NewsFeedControl />
+            {/* <NewsFeedControl /> */}
           </div>
 
           <div className="col-md-8">
-            <FriendsList />
+            {/* <FriendsList /> */}
           </div>
-
-
-
         </div>
-
-
-
-
       </div>
-    </div>
-
-
-
-  );
+    );
+  }
 }
-
 export default App;
